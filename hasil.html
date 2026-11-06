@@ -1,16 +1,297 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Hasil pencarian buku">
-    <title>Hasil Pencarian</title>
+    <meta name="description" content="Hasil pencarian dan daftar buku">
+    <title>Hasil Pencarian Buku</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f6f9;
+            color: #222;
+        }
+
+        header {
+            background-color: #064b80;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            background-color: #073b63;
+            padding: 15px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .layout {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .konten {
+            flex: 3;
+            min-width: 0;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .sidebar {
+            flex: 1;
+            background-color: #e0eaf2;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        caption {
+            font-weight: bold;
+            padding: 12px;
+            font-size: 18px;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 12px;
+            text-align: left;
+            overflow-wrap: break-word;
+        }
+
+        th {
+            background-color: #064b80;
+            color: white;
+        }
+
+        /* Mengatur lebar kolom */
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 22%;
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 22%;
+        }
+
+        th:nth-child(3),
+        td:nth-child(3) {
+            width: 20%;
+        }
+
+        th:nth-child(4),
+        td:nth-child(4) {
+            width: 21%;
+        }
+
+        th:nth-child(5),
+        td:nth-child(5) {
+            width: 15%;
+        }
+
+        /* Media query layar sempit */
+        @media screen and (max-width: 768px) {
+
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 5px;
+            }
+
+            .navbar a {
+                text-align: center;
+            }
+
+            .layout {
+                flex-direction: column;
+            }
+
+            .konten,
+            .sidebar {
+                width: 100%;
+            }
+
+            th, td {
+                padding: 5px;
+                font-size: 12px;
+            }
+
+            /* Menyembunyikan kolom Penulis */
+            th:nth-child(3),
+            td:nth-child(3) {
+                display: none;
+            }
+
+            body {
+                margin: 10px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hasil Pencarian</h1>
-    <p> Halaman ini belum memproses data. Lihat alamat di browser:
-        kata kunci dan kategori terbawa di query string. </p>
-    <p><a href="cari.html">Kembali ke pencarian</a>
-    </p>
+
+    <header>
+        <h1>Perpustakaan Mini</h1>
+        <p>Daftar Koleksi Buku Perpustakaan</p>
+    </header>
+
+    <nav class="navbar">
+        <a href="index.html">Beranda</a>
+        <a href="form.html">Tambah Buku</a>
+        <a href="cari.html">Cari Buku</a>
+    </nav>
+
+    <div class="layout">
+
+        <main class="konten">
+
+            <h2>Hasil Pencarian</h2>
+
+            <p>
+                Kata Kunci:
+                <strong id="tampil-kata">-</strong>
+            </p>
+
+            <p>
+                Kategori:
+                <strong id="tampil-kategori">-</strong>
+            </p>
+
+            <h2>Daftar Buku</h2>
+
+            <table>
+
+                <caption>Daftar Koleksi Buku Perpus Mini</caption>
+
+                <thead>
+                    <tr>
+                        <th scope="col">ISBN</th>
+                        <th scope="col">Judul</th>
+                        <th scope="col">Penulis</th>
+                        <th scope="col">Kategori</th>
+                        <th scope="col">Tahun</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>9786020324781</td>
+                        <td>Belajar HTML</td>
+                        <td>Andi Pratama</td>
+                        <td>Pemrograman</td>
+                        <td>2020</td>
+                    </tr>
+
+                    <tr>
+                        <td>9786022912827</td>
+                        <td>Laskar Pelangi</td>
+                        <td>Andrea Hirata</td>
+                        <td>Novel</td>
+                        <td>2005</td>
+                    </tr>
+
+                    <tr>
+                        <td>9789793062792</td>
+                        <td>Sejarah Indonesia</td>
+                        <td>Ahmad Fauzi</td>
+                        <td>Sejarah</td>
+                        <td>2018</td>
+                    </tr>
+
+                    <tr>
+                        <td>9786020633176</td>
+                        <td>Atomic Habits</td>
+                        <td>James Clear</td>
+                        <td>Pengembangan Diri</td>
+                        <td>2019</td>
+                    </tr>
+
+                    <tr>
+                        <td>9786024817451</td>
+                        <td>Dasar Pemrograman</td>
+                        <td>Budi Santoso</td>
+                        <td>Pemrograman</td>
+                        <td>2022</td>
+                    </tr>
+
+                    <!-- Buku tambahan -->
+                    <tr>
+                        <td>9786024551234</td>
+                        <td>Belajar Pendidikan</td>
+                        <td>Siti Aminah</td>
+                        <td>Pendidikan</td>
+                        <td>2024</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <p>
+                <a href="cari.html">Kembali ke Pencarian</a>
+            </p>
+
+        </main>
+
+        <aside class="sidebar">
+
+            <h3>Kategori Buku</h3>
+
+            <ul>
+                <li>Pemrograman</li>
+                <li>Novel</li>
+                <li>Sejarah</li>
+                <li>Pengembangan Diri</li>
+                <li>Pendidikan</li>
+            </ul>
+
+        </aside>
+
+    </div>
+
+    <script>
+        const parameter = new URLSearchParams(
+            window.location.search
+        );
+
+        const kata = parameter.get("kata") || "-";
+        const kategori = parameter.get("kategori") || "";
+
+        const daftarKategori = {
+            "1": "Pemrograman",
+            "2": "Novel",
+            "3": "Sejarah",
+            "4": "Pengembangan Diri",
+            "5": "Pendidikan"
+        };
+
+        document.getElementById("tampil-kata").textContent = kata;
+
+        document.getElementById("tampil-kategori").textContent =
+            daftarKategori[kategori] || "Semua";
+
+    </script>
+
 </body>
 </html>

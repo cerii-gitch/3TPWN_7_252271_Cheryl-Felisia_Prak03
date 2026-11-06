@@ -1,15 +1,50 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Form tambah buku Perpus Mini">
+    <meta name="description" content="Form tambah buku">
     <title>Tambah Buku</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f6f9;
+        }
+
+        fieldset {
+            margin-bottom: 15px;
+            padding: 15px;
+        }
+
+        input, select, textarea {
+            max-width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        button {
+            padding: 10px 18px;
+            background-color: #064b80;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #073b63;
+        }
+    </style>
 </head>
+
 <body>
+
     <h1>Tambah Buku</h1>
 
     <form action="#" method="post">
+
         <fieldset>
             <legend>Data Buku</legend>
 
@@ -22,22 +57,24 @@
 
             <p>
                 <label for="penulis">Penulis</label><br>
-                <input type="text" id="penulis"
-                    name="penulis" required>
+                <input type="text" id="penulis" name="penulis"
+                    required>
             </p>
 
             <p>
                 <label for="kategori">Kategori</label><br>
-                <select id="kategori" name="kategori">
+                <select id="kategori" name="kategori" required>
+                    <option value="">Pilih kategori</option>
                     <option value="1">Pemrograman</option>
                     <option value="2">Novel</option>
                     <option value="3">Sejarah</option>
                     <option value="4">Pengembangan Diri</option>
+                    <option value="5">Pendidikan</option>
                 </select>
             </p>
 
             <p>
-                <label for="tahun">Tahun terbit</label><br>
+                <label for="tahun">Tahun Terbit</label><br>
                 <input type="number" id="tahun" name="tahun"
                     min="1900" max="2026" required>
             </p>
@@ -45,7 +82,7 @@
             <p>
                 <label for="stok">Stok</label><br>
                 <input type="number" id="stok" name="stok"
-                    min="0" required>
+                    min="0" max="1000" required>
             </p>
 
             <p>
@@ -53,8 +90,20 @@
                 <input type="text" id="isbn" name="isbn"
                     maxlength="13"
                     pattern="[0-9]{13}"
-                    title="13 angka tanpa tanda hubung">
+                    title="ISBN harus terdiri dari 13 angka">
             </p>
+
+            <p>
+                <label for="tanggal">Tanggal Terbit</label><br>
+                <input type="date" id="tanggal" name="tanggal">
+            </p>
+
+            <p>
+                <label for="situs">Situs Penerbit</label><br>
+                <input type="url" id="situs" name="situs"
+                    placeholder="https://contoh.com">
+            </p>
+
         </fieldset>
 
         <fieldset>
@@ -62,16 +111,20 @@
 
             <input type="radio" id="bahasa-id"
                 name="bahasa" value="id">
+
             <label for="bahasa-id">Indonesia</label>
 
             <input type="radio" id="bahasa-en"
                 name="bahasa" value="en">
+
             <label for="bahasa-en">Inggris</label>
+
         </fieldset>
 
         <p>
             <input type="checkbox" id="referensi"
                 name="referensi">
+
             <label for="referensi">
                 Buku referensi (tidak dipinjamkan)
             </label>
@@ -83,9 +136,10 @@
                 rows="3" cols="40"></textarea>
         </p>
 
-        <p>
-            <button type="submit">Simpan</button>
-        </p>
+        <button type="submit">Simpan</button>
+        <button type="reset">Reset</button>
+
     </form>
+
 </body>
 </html>

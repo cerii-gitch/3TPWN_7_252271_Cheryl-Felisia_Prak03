@@ -1,35 +1,62 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Pencarian buku Perpus Mini">
+    <meta name="description" content="Pencarian buku">
     <title>Cari Buku</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f6f9;
+        }
+
+        input, select {
+            padding: 8px;
+            margin-top: 5px;
+            max-width: 100%;
+        }
+
+        button {
+            padding: 10px 18px;
+            background-color: #064b80;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
+
     <h1>Cari Buku</h1>
 
     <form action="hasil.html" method="get">
+
         <p>
-            <label for="kata">Kata kunci</label><br>
-            <input type="text" id="kata"
-                name="kata" required>
+            <label for="kata">Kata Kunci</label><br>
+            <input type="text" id="kata" name="kata" required>
         </p>
 
         <p>
-            <label for="kat">Kategori</label><br>
-            <select id="kat" name="kategori">
+            <label for="kategori">Kategori</label><br>
+
+            <select id="kategori" name="kategori">
                 <option value="">Semua</option>
                 <option value="1">Pemrograman</option>
                 <option value="2">Novel</option>
                 <option value="3">Sejarah</option>
                 <option value="4">Pengembangan Diri</option>
+                <option value="5">Pendidikan</option>
             </select>
         </p>
 
-        <p>
-            <button type="submit">Cari</button>
-        </p>
+        <button type="submit">Cari</button>
+
     </form>
+
 </body>
 </html>

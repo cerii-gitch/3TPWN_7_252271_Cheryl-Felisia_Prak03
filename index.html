@@ -1,27 +1,130 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Panel input Perpus Mini">
+    <meta name="description" content="Halaman utama Perpus Mini">
     <title>Perpus Mini</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f6f9;
+        }
+
+        header {
+            background-color: #064b80;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            background-color: #073b63;
+            padding: 15px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .navbar a:hover {
+            background-color: #00a6d6;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .panel-utama,
+        .panel-luar {
+            width: 100%;
+        }
+
+        iframe {
+            max-width: 100%;
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .navbar a {
+                text-align: center;
+            }
+
+            main {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Perpus Mini: Input Data</h1>
 
-    <p>Pilih menu. Halaman terbuka di dalam bingkai di bawah.</p>
+    <header>
+        <h1>Perpus Mini: Input Data</h1>
+        <p>Selamat Datang di Perpustakaan Mini</p>
+    </header>
 
-    <ul>
-        <li><a href="form.html" target="panel">Tambah buku</a></li>
-        <li><a href="cari.html" target="panel">Cari buku</a>
-        </li>
-    </ul>
+    <nav class="navbar">
+        <a href="form.html" target="panel">Tambah Buku</a>
+        <a href="cari.html" target="panel">Cari Buku</a>
+        <a href="hasil.html" target="panel">Hasil Buku</a>
+    </nav>
 
-    <iframe name="panel"
-        src="form.html"
-        title="Panel Perpus Mini"
-        width="760"
-        height="560">
-    </iframe>
+    <main>
+
+        <section class="panel-utama">
+            <h2>Halaman Utama</h2>
+            <p>Pilih menu untuk membuka halaman.</p>
+
+            <iframe
+                name="panel"
+                src="form.html"
+                title="Panel Perpus Mini"
+                width="600"
+                height="480">
+            </iframe>
+        </section>
+
+        <section class="panel-luar">
+            <h2>Pengujian Situs Eksternal</h2>
+
+            <p>Contoh penyematan situs YouTube:</p>
+
+            <iframe
+                src="https://www.youtube.com/embed/aqz-KE-bpKQ"
+                title="Video YouTube"
+                width="400"
+                height="300"
+                allowfullscreen>
+            </iframe>
+
+            <p>
+                Jika video tidak muncul, buka situs melalui tautan berikut:
+            </p>
+
+            <a href="https://www.youtube.com/" target="_blank">
+                Buka YouTube
+            </a>
+
+        </section>
+
+    </main>
+
 </body>
 </html>
